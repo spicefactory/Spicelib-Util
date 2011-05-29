@@ -39,21 +39,6 @@ public class ArrayUtil {
 		return false;
 	}
 	
-	[Deprecated(replacement="Array.indexOf")]
-	public static function indexOf (arr:Array, element:*) : int {
-		return arr.indexOf(element);
-	}	
-
-	[Deprecated(replacement="Array.lastIndexOf")]
-	public static function lastIndexOf (arr:Array, element:*) : int {
-		return arr.lastIndexOf(element);
-	}	
-
-	[Deprecated(replacement="Array.indexOf")]
-	public static function contains (arr:Array, element:*) : Boolean {
-		return  (arr.indexOf(element) != -1);
-	}	
-
 }
 	
 }
