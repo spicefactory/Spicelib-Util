@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<flex-config>
+
+	<compiler>
+	
+		<source-path>
+      		<path-element>${project}/src/main</path-element>
+    	</source-path>
+		
+		<external-library-path>
+			<path-element>${flexlib}/libs/player/9/playerglobal.swc</path-element>
+			<path-element>${flexlib}/libs/flex.swc</path-element>
+			<path-element>${flexlib}/libs/framework.swc</path-element>
+		</external-library-path>
+		
+	    <verbose-stacktraces>true</verbose-stacktraces>
+	    <debug>true</debug>
+	    
+	</compiler>
+	
+	<include-sources>
+  		<path-element>${project}/src/main</path-element>
+  	</include-sources>
+  	    
+  	<output>${release}/spicelib-util-${version}.swc</output>
+	    
+</flex-config>
