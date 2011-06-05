@@ -1,4 +1,4 @@
-<project name="Parsley Release Zip"> 
+<project name="Spicelib Util"> 
 
 	
 	<property file="build.properties" />
