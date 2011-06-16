@@ -14,7 +14,7 @@
  * limitations under the License.
  */
  
-package org.spicefactory.lib.util.collection {
+package org.spicefactory.lib.collection {
 
 /**
  * Map implementation that maps each key to one or more items. 

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
  
-package org.spicefactory.lib.util.collection {
+package org.spicefactory.lib.collection {
 
 import org.spicefactory.lib.errors.IllegalArgumentError;
 import flash.errors.IllegalOperationError;
