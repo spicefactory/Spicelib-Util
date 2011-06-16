@@ -187,7 +187,7 @@ public class List extends Proxy {
 	 */
 	public function getLast () : * {
 		assertNotEmpty();
-		items[items.length - 1];
+		return items[items.length - 1];
 	}
 	
 	/**
