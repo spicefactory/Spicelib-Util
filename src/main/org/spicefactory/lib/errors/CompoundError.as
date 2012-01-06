@@ -15,7 +15,8 @@
  */
 
 package org.spicefactory.lib.errors {
-import flash.events.ErrorEvent;
+
+import org.spicefactory.lib.util.StringUtil;
 
 /**
  * Base Error implementation that allows to specify multiple causes.
@@ -67,16 +68,7 @@ public class CompoundError extends Error {
 		if (causes.length > 0) {
 			for (var i:int = 0; i < causes.length; i++) {
 				txt += "\n Cause(" + i + "): ";
-				var c:Object = causes[i];
-				if (c is Error) {
-					txt += (c as Error).getStackTrace();
-				}
-				else if (c is ErrorEvent) {
-					txt += (c as ErrorEvent).text;
-				}
-				else {
-					txt += c.toString();
-				}
+				txt += StringUtil.formatError(causes[i]);
 			}
 		}
 		return txt;

@@ -15,6 +15,9 @@
  */
 
 package org.spicefactory.lib.events {
+
+import org.spicefactory.lib.util.StringUtil;
+
 import flash.events.ErrorEvent;
 import flash.events.Event;
 
@@ -61,24 +64,16 @@ public class NestedErrorEvent extends ErrorEvent {
 	 */
 	public override function get text () : String {
 		var txt:String = super.text;
-		if (_cause != null) {
+		if (cause != null) {
 			txt += " - cause: ";
-			if (cause is Error) {
-				txt += (cause as Error).getStackTrace();
-			}
-			else if (cause is ErrorEvent) {
-				txt += ErrorEvent(cause).text;
-			}
-			else {
-				txt += cause.toString();
-			}
+			txt += StringUtil.formatError(cause);
 		}
 		return txt;
 	}
 	
 	
 	public override function clone () : Event {
-		return new NestedErrorEvent(type, cause, text, bubbles, cancelable);
+		return new NestedErrorEvent(type, cause, super.text, bubbles, cancelable);
 	}
 	
 	

@@ -15,6 +15,9 @@
  */
 
 package org.spicefactory.lib.events {
+
+import org.spicefactory.lib.util.StringUtil;
+
 import flash.events.ErrorEvent;
 import flash.events.Event;
 
@@ -65,16 +68,7 @@ public class CompoundErrorEvent extends ErrorEvent {
 			txt += ": " + causes.length + " cause(s)";
 			for (var i:int = 0; i < causes.length; i++) {
 				txt += "\n Cause(" + i + "): ";
-				var c:Object = causes[i];
-				if (c is Error) {
-					txt += (c as Error).getStackTrace();
-				}
-				else if (c is ErrorEvent) {
-					txt += (c as ErrorEvent).text;
-				}
-				else {
-					txt += c.toString();
-				}
+				txt += StringUtil.formatError(causes[i]);
 			}
 		}
 		return txt;

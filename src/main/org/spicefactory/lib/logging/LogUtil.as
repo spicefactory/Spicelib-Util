@@ -15,6 +15,10 @@
  */
 
 package org.spicefactory.lib.logging {
+
+import org.spicefactory.lib.util.StringUtil;
+
+import flash.events.ErrorEvent;
 import flash.utils.getQualifiedClassName;
 
 /**
@@ -41,7 +45,7 @@ public class LogUtil {
 	
 	/**
 	 * Builds the log message from the specified message and parameters.
-	 * The message may contain numered placeholders like '{0}' which will be replaced by the
+	 * The message may contain numbered placeholders like '{0}' which will be replaced by the
 	 * specified parameters. For parameters of type Error the whole stacktrace will be included.
 	 * 
 	 * @param message the message, possibly containing parameter placeholders
@@ -52,9 +56,8 @@ public class LogUtil {
 		if (params == null) return message;
 		for (var i:int = 0; i < params.length; i++) {
 			var param:* = params[i];
-			if (param is Error) {
-				var e:Error = param as Error;
-				param = "\n" + e.getStackTrace();
+			if (param is Error || param is ErrorEvent) {
+				param = "\n" + StringUtil.formatError(param);
 			}
 			message = message.replace(new RegExp("\\{"+ i +"\\}", "g"), param);
 		}

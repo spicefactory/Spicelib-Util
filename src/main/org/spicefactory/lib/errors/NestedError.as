@@ -17,6 +17,7 @@
 package org.spicefactory.lib.errors {
 
 
+import org.spicefactory.lib.util.StringUtil;
 /**
  * Base <code>Error</code> implementation that allows to specify a cause.
  * 
@@ -56,7 +57,7 @@ public class NestedError extends Error {
 	public override function getStackTrace () : String {
 		var st:String = super.getStackTrace();
 		if (_cause != null) {
-			st += "\n Caused by: " + _cause.getStackTrace();
+			st += "\n Caused by: " + StringUtil.formatError(cause);
 		}
 		return st;
 	}
